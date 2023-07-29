@@ -14,15 +14,6 @@ const renderApp = () => {
   );
 };
 
-// const renderApp = () => {
-//   ReactDOM.render(
-//     <React.StrictMode>
-//       <App />
-//     </React.StrictMode>,
-//     document.getElementById("root")
-//   );
-// };
-
 initFacebookSDK().then(() => {
   renderApp();
 });
