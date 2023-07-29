@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import StepByStep from "./StepByStep/StepByStep";
 import "./styles.css";
 
 function App() {
@@ -28,7 +27,8 @@ function App() {
       },
       {
         // Scopes that allow us to publish content to Instagram
-        scope: "instagram_basic,pages_show_list",
+        // scope: "instagram_basic,pages_show_list",
+        scope: "email,pages_show_list,business_management,instagram_basic,instagram_manage_comments,instagram_manage_insights,instagram_content_publish,instagram_manage_messages,pages_read_engagement,pages_manage_metadata,pages_read_user_content,pages_manage_posts"
       }
     );
   };
@@ -128,46 +128,43 @@ function App() {
   };
 
   return (
-    <>
-      <main id="app-main">
-        <section className="app-section">
-          <h3>1. Log in with Facebook</h3>
-          {facebookUserAccessToken ? (
-            <button onClick={logOutOfFB} className="btn action-btn">
-              Log out of Facebook
-            </button>
-          ) : (
-            <button onClick={logInToFB} className="btn action-btn">
-              Login with Facebook
-            </button>
-          )}
-        </section>
+    <main id="app-main">
+      <section className="app-section">
+        <h3>1. Log in with Facebook</h3>
         {facebookUserAccessToken ? (
-          <section className="app-section">
-            <h3>2. Send a post to Instagram</h3>
-            <input
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="Enter a JPEG image url..."
-            />
-            <textarea
-              value={postCaption}
-              onChange={(e) => setPostCaption(e.target.value)}
-              placeholder="Write a caption..."
-              rows="10"
-            />
-            <button
-              onClick={shareInstagramPost}
-              className="btn action-btn"
-              disabled={isSharingPost || !imageUrl}
-            >
-              {isSharingPost ? "Sharing..." : "Share"}
-            </button>
-          </section>
-        ) : null}
-      </main>
-      <StepByStep facebookUserAccessToken={facebookUserAccessToken} />
-    </>
+          <button onClick={logOutOfFB} className="btn action-btn">
+            Log out of Facebook
+          </button>
+        ) : (
+          <button onClick={logInToFB} className="btn action-btn">
+            Login with Facebook
+          </button>
+        )}
+      </section>
+      {facebookUserAccessToken ? (
+        <section className="app-section">
+          <h3>2. Send a post to Instagram</h3>
+          <input
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            placeholder="Enter a JPEG image url..."
+          />
+          <textarea
+            value={postCaption}
+            onChange={(e) => setPostCaption(e.target.value)}
+            placeholder="Write a caption..."
+            rows="10"
+          />
+          <button
+            onClick={shareInstagramPost}
+            className="btn action-btn"
+            disabled={isSharingPost || !imageUrl}
+          >
+            {isSharingPost ? "Sharing..." : "Share"}
+          </button>
+        </section>
+      ) : null}
+    </main>
   );
 }
 

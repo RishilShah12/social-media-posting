@@ -1,5 +1,3 @@
-// Find your App ID in the App Dashboard on Facebook for Developers.
-// const FACEBOOK_APP_ID = "923926215318420";
 const FACEBOOK_APP_ID = "993497888770791";
 
 export default function initFacebookSDK() {
@@ -8,9 +6,9 @@ export default function initFacebookSDK() {
     window.fbAsyncInit = function () {
       window.FB.init({
         appId: FACEBOOK_APP_ID,
-        cookie: true,
+        // cookie: true,
         xfbml: true,
-        version: "v10.0",
+        version: "v17.0",
       });
 
       resolve();
