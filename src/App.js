@@ -27,7 +27,6 @@ function App() {
       },
       {
         // Scopes that allow us to publish content to Instagram
-        // scope: "instagram_basic,pages_show_list",
         scope: "email,pages_show_list,business_management,instagram_basic,instagram_manage_comments,instagram_manage_insights,instagram_content_publish,instagram_manage_messages,pages_read_engagement,pages_manage_metadata,pages_read_user_content,pages_manage_posts"
       }
     );
